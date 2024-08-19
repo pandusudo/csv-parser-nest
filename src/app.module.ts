@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CsvdataModule } from './csvdata/csvdata.module';
+import { FileUploadModule } from './file-upload/file-upload.module';
 import { ConfigModule } from '@nestjs/config';
 import databaseConfig from './config/database/database.config';
 import appConfig from './config/app.config';
@@ -23,7 +23,7 @@ import 'dotenv/config';
         return new DataSource(options).initialize();
       },
     }),
-    CsvdataModule,
+    FileUploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],

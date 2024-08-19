@@ -1,4 +1,4 @@
-export enum CsvDataStatusEnum {
+export enum FileUploadStatusEnum {
   InProgress = 'in progress',
   Paused = 'paused',
   Finished = 'finished',

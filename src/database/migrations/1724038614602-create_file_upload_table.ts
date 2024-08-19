@@ -1,11 +1,11 @@
-import { CsvDataStatusEnum } from 'src/csvdata/enums/csvdata';
+import { FileUploadStatusEnum } from 'src/file-upload/enums/file-upload';
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateCsvDataTable1723880576347 implements MigrationInterface {
+export class CreateFileUploadTable1724038614602 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'csv_data',
+        name: 'file_uploads',
         columns: [
           {
             name: 'id',
@@ -21,7 +21,7 @@ export class CreateCsvDataTable1723880576347 implements MigrationInterface {
           {
             name: 'status',
             type: 'enum',
-            enum: Object.values(CsvDataStatusEnum),
+            enum: Object.values(FileUploadStatusEnum),
           },
           {
             name: 'error_log',
@@ -46,6 +46,6 @@ export class CreateCsvDataTable1723880576347 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('csv_data');
+    await queryRunner.dropTable('file_uploads');
   }
 }

@@ -5,18 +5,18 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { CsvDataStatusEnum } from '../enums/csvdata';
+import { FileUploadStatusEnum } from '../enums/file-upload';
 
 @Entity()
-export class CsvData {
+export class FileUpload {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   filename: string;
 
-  @Column({ type: 'enum', enum: CsvDataStatusEnum })
-  status: CsvDataStatusEnum;
+  @Column({ type: 'enum', enum: FileUploadStatusEnum })
+  status: FileUploadStatusEnum;
 
   @Column({ nullable: true })
   error_log?: string;
