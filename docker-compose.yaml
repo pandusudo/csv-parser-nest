@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: csv_parser
+      PGDATA: /data/postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - '5433:5432'
+    restart: unless-stopped
