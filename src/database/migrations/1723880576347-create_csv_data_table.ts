@@ -1,3 +1,4 @@
+import { CsvDataStatusEnum } from 'src/csvdata/enums/csvdata';
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export class CreateCsvDataTable1723880576347 implements MigrationInterface {
@@ -14,17 +15,18 @@ export class CreateCsvDataTable1723880576347 implements MigrationInterface {
             generationStrategy: 'increment',
           },
           {
-            name: 'firstName',
+            name: 'filename',
             type: 'varchar',
           },
           {
-            name: 'lastName',
-            type: 'varchar',
+            name: 'status',
+            type: 'enum',
+            enum: Object.values(CsvDataStatusEnum),
           },
           {
-            name: 'isActive',
-            type: 'boolean',
-            default: true,
+            name: 'error_log',
+            type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'created_at',

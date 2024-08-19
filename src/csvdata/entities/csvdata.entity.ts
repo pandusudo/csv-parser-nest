@@ -5,6 +5,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { CsvDataStatusEnum } from '../enums/csvdata';
 
 @Entity()
 export class CsvData {
@@ -12,13 +13,13 @@ export class CsvData {
   id: number;
 
   @Column()
-  firstName: string;
+  filename: string;
 
-  @Column()
-  lastName: string;
+  @Column({ type: 'enum', enum: CsvDataStatusEnum })
+  status: CsvDataStatusEnum;
 
-  @Column({ default: true })
-  isActive: boolean;
+  @Column({ nullable: true })
+  error_log?: string;
 
   @CreateDateColumn({
     type: 'timestamp',
