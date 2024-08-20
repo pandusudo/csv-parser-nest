@@ -8,7 +8,6 @@ import appConfig from './config/app.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigService } from './config/database/typeorm-config.service';
 import { DataSource, DataSourceOptions } from 'typeorm';
-import 'dotenv/config';
 
 @Module({
   imports: [

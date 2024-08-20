@@ -1,14 +1,10 @@
-import { IsEnum, IsOptional, IsString } from 'class-validator';
-import { FileUploadStatusEnum } from '../enums/file-upload';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class UploadFileDto {
-  @IsString()
-  filename: string;
-
-  @IsEnum(FileUploadStatusEnum)
-  status: FileUploadStatusEnum;
-
-  @IsOptional()
-  @IsString()
-  error_log?: string;
+  @ApiProperty({
+    type: 'string',
+    format: 'binary',
+    description: 'csv file to upload',
+  })
+  file: any;
 }
